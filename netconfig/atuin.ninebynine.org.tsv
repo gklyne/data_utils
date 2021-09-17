@@ -22,27 +22,27 @@
 	iphone          	193.123.216.73	d8:cf:9c:6f:fe:7b	iPhone (Mandy)			
 	iPad-air        	193.123.216.74		iPad (Mandy)			
 	iPhone-11	193.123.216.75	b6:7f:82:a8:2f:8c	iPhone 11 (Graham)			
-	iPad-pro	193.123.216.76		iPad Pro 12.9”			
+	iPad-pro	193.123.216.76	3c:bf:60:6f:fa:84	iPad Pro 12.9”			
 	eskarina        	193.123.216.77	00:23:df:a5:af:3c	" MacBook (wired, orig 13”)"			
 	eskarina-wl     	193.123.216.78	00:23:6c:99:b8:7e	 MacBook (wireless)			
 	spare-79        	193.123.216.79		(spare)			
 							
 	sasharissa      	193.123.216.80	f4:5c:89:b2:e7:1f	"13"" Apple Macbook w/retina (wired)"			
 	sasharissa-wl   	193.123.216.81	4a:00:05:15:65:30	"13"" Apple Macbook w/retina (wireless)"			
-	spare_82	193.123.216.82		 (spare)			
-	spare_83	193.123.216.83		 (spare)			
+	spare-82	193.123.216.82		 (spare)			
+	spare-83	193.123.216.83		 (spare)			
 	bigmac          	193.123.216.84	00:26:b0:dc:ad:04	"17"" MacBook (wired)"			
 	bigmac-wl       	193.123.216.85	00:26:bb:0b:2c:53	"17"" MacBook (wireless)"			
 	spare-86	193.123.216.86		 (spare)			
 	conina          	193.123.216.87	a8:20:66:35:df:fb	"15"" MacBook (wired)"			
 	conina-wl       	193.123.216.88	20:c9:d0:e3:f5:93	"15"" MacBook (wireless)"			
-	spare_89	193.123.216.89		 (spare)			
+	spare-89	193.123.216.89		 (spare)			
 							
 	raspberry-pi    	193.123.216.90		Raspberry PI			
 	raspberry-pi-2	193.123.216.91		Raspberry Pi with 512Mb			
 	ipad-air        	193.123.216.92		Mandy's new iPad			
 	rpi-media       	193.123.216.93	dc:a6:32:ec:d1:d9	Raspberry Pi 4 media player			
-	rpi-octprint    	193.123.216.94	b8:27:eb:d2:46:d8	Raspberry Pi 3 Octoprint server (wired)			
+	rpi-octoprint    	193.123.216.94	b8:27:eb:d2:4b:d8	Raspberry Pi 3 Octoprint server (wired)			
 	spare-95	193.123.216.95		 (spare)			
 	spare-96	193.123.216.96		 (spare)			
 	spare-97	193.123.216.97		 (spare)			

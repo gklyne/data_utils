@@ -58,6 +58,8 @@ class Grid(object):
                 row += 1
             except ValueError as e:
                 break
+            except IndexError as e:
+                break
         return
 
     def rows(self, rowfrom, rowto=100000):

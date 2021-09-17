@@ -33,21 +33,64 @@ def gethostdata(grid, baseuri):
     """
     Get host data from grid, return dictionary of host records indexed by IP address
     """
-    print("@@@TODO: gethostdata")
-    return (0, {})
+    hostdata = {}
+    for h in grid:
+        try:
+            name    = h[1].strip()
+            ipaddr  = h[2].strip()
+            macaddr = h[3].strip()
+            descr   = h[4].strip()
+            if name:
+                print(f"host: {name:16}, IP {ipaddr:16}, MAC {macaddr:18} # {descr}")
+                hostdata[name] = {'name':name, 'ipaddr':ipaddr, 'macaddr':macaddr, 'descr':descr}
+        except IndexError as e:
+            continue
+    return (0, hostdata)
 
 def mkdhcpdconf(hostdata, filebase):
     """
     Output DHCP host configuration data to <filebase>.dhcpd.conf
     """
-    print("@@@TODO: mkdhcpdconf")
+    dhcpdconf_filepath = filebase+".dhcpd.conf"
+    _, dhcpdconf_filename = os.path.split(dhcpdconf_filepath)
+    with open(dhcpdconf_filepath, "wt") as f:
+        f.write(f"""# {dhcpdconf_filename}
+#
+# Copy this file to /etc/dhcp on the server system, and 
+# include in /etc/dhcp/dhcpd.conf with this line:
+#   include "/etc/dhcp/{dhcpdconf_filename}" ;
+#
+""")
+        for (ipaddr,h) in hostdata.items():
+            if h['macaddr']:
+                dhcpd_entry = f"""host {h['name']}
+    {{   # {h['descr']}
+        hardware ethernet {h['macaddr']} ;
+        fixed-address     {h['name']}.atuin.ninebynine.org ;
+    }}
+"""
+                f.write(dhcpd_entry)
+            # f.write(f"host: {h['name']:16}, IP {h['ipaddr']:16}, MAC {h['macaddr']:18} # {h['descr']}\n")
     return 0
 
 def mkzonehosts(hostdata, filebase):
     """
     Output DHCP host configuration data to <filebase>.zone.hosts
     """
-    print("@@@TODO: mkzonehosts")
+    zonehosts_filepath = filebase+".zone.hosts"
+    _, zonehosts_filename = os.path.split(zonehosts_filepath)
+    with open(zonehosts_filepath, "wt") as f:
+        f.write(f"""; {zonehosts_filename}
+;
+; Copy this file to /etc/bind/atuin on the server system, and 
+; include in /etc/bind/atuin/atuin.ninebynine.org.zone with this line:
+;   $INCLUDE {zonehosts_filename}
+;
+""")
+        for (ipaddr,h) in hostdata.items():
+            dns_entry = f"{h['name']:16} IN A {h['ipaddr']:16}   ; {h['descr']}\n"
+            f.write(dns_entry)
+            # f.write(f"host: {h['name']:16}, IP {h['ipaddr']:16}, MAC {h['macaddr']:18} # {h['descr']}\n")
     return 0
 
 def run(configbase, filebase, options, progname):
@@ -111,7 +154,7 @@ def parseCommandArgs(argv):
     # create a parser for the command line options
     parser = argparse.ArgumentParser(
                 description="Generate network DNS/DHCP configuration data from tabular hosts description.",
-                epilog="The generated files are written to @@@.dhcpd.conf and @@@@.zone.hosts.")
+                epilog="The generated files are written to <filename>.dhcpd.conf and <filename>.zone.hosts.")
     # parser.add_argument("-a", "--all",
     #                     action="store_true",
     #                     dest="all",
