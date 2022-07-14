@@ -1,0 +1,27 @@
+{
+  "@context": [
+    {
+      "@base": "../../"
+    },
+    "../../coll_context.jsonld"
+  ],
+  "@id": "Potential_suppliers/Piston_Distillery",
+  "@type": [
+    "fp:Potential_suppliers",
+    "annal:EntityData"
+  ],
+  "annal:id": "Piston_Distillery",
+  "annal:type": "fp:Potential_suppliers",
+  "annal:type_id": "Potential_suppliers",
+  "annal:uri": "fp:Piston_Distillery",
+  "fp:company_status": "Company_status/Private",
+  "fp:company_website": "https://www.pistongin.com",
+  "fp:location_ref": "Location/Worcester",
+  "fp:multinational_organization": false,
+  "fp:product_animal_use": "Animal_use/Unknown",
+  "fp:product_type_ref": "Product_type/Gin",
+  "fp:recycling_status": "Recycling_status/Food_packaging_recyclable",
+  "fp:retail_availability": false,
+  "rdfs:comment": "Excellent Gin",
+  "rdfs:label": "Piston Distillery"
+}
